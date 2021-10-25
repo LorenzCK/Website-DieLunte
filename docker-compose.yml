@@ -6,7 +6,7 @@ networks:
 
 services:
   server:
-    image: 8.0.12-apache
+    image: php:8.0.12-apache
     networks:
     - web
     volumes:

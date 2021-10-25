@@ -1,0 +1,419 @@
+﻿/* Web font */
+@font-face {
+    font-family: 'GillSansStdLight';
+    src: url('webfonts/gillsansstd-light-webfont.eot');
+    src: url('webfonts/gillsansstd-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('webfonts/gillsansstd-light-webfont.woff') format('woff'),
+         url('webfonts/gillsansstd-light-webfont.ttf') format('truetype'),
+         url('webfonts/gillsansstd-light-webfont.svg#GillSansStdLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* BASE TAGS */
+img {
+	border: 0;
+}
+p {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	font-weight: bold;
+	color: red;
+	text-decoration: none;
+}
+a:hover {
+	color: red;
+	text-decoration: underline;
+}
+
+.floating-right {
+	float: right;
+}
+.floating-right a {
+	font-weight: normal;
+}
+.centered {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+/* LAYOUT */
+body {
+	background: white;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	overflow: hidden;
+	margin: 0 0 60px 0;
+}
+.wrapper {
+	width: 900px;
+	margin: 6em auto 0 auto;
+}
+
+.special-notice {
+	font-family: DINCondensed;
+	margin: 1em 0;
+	font-size: 18pt;
+	background: #EEE;
+	border-top: solid 2px #DDD;
+	border-bottom: solid 2px #DDD;
+	padding: 1em 0 1em 0;
+}
+.special-notice div {
+	width: 900px;
+	margin: 0 auto;
+}
+
+nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	overflow: hidden;
+	font-family: GillSansStdLight;
+	font-size: 14pt;
+	background: #EEE;
+	padding: 1em 0 1em 0;
+}
+nav ul {
+	width: 900px;
+	margin: 0 auto;
+	list-style: none;
+	padding: 0;
+}
+nav ul li {
+	float: left;
+	margin: 0 1.5em 0 0;
+	padding: 0;
+}
+
+header {
+	display: block;
+	overflow: hidden;
+}
+header .texthelp {
+	display: none;
+}
+header .subtitle {
+	font-family: GillSansStdLight;
+	font-size: 18pt;
+	margin: 16px 0;
+}
+
+h1 {
+	font-family: DINCondensed;
+	font-size: 120pt;
+	margin: 40px 0 30px 0;
+	text-transform: uppercase;
+}
+
+.red {
+	color: red;
+}
+
+#book-presentation {
+	width: 100%;
+	overflow: hidden;
+}
+#book-presentation .book-column {
+	width: 33%;
+	float: left;
+}
+#book-presentation .book-pic {
+	text-align: center;
+	margin: 0 0 20px 0;
+}
+#book-presentation .book-header {
+	font-family: GillSansStdLight;
+	font-size: 18pt;
+	margin: 0 0 10px 0;
+	text-align: center;
+}
+
+#book-presentation.small .book-column {
+	width: 25%;
+	float: left;
+}
+#book-presentation.small .book-pic {
+	text-align: center;
+	margin: 0 0 20px 0;
+}
+#book-presentation.small .book-pic img {
+	border: solid 1px black;
+}
+#book-presentation.small .book-header {
+	font-size: 13pt;
+}
+#book-presentation.small .book-header .title:before {
+	content: '“';
+}
+#book-presentation.small .book-header .title:after {
+	content: '”';
+}
+
+.notice {
+	margin: 40px 0;
+	padding: 30px;
+	border: solid 10px red;
+	background: white;
+	color: black;
+	
+	font-family: DINCondensed;
+	text-transform: uppercase;
+	font-size: 24pt;
+	text-align: center;
+}
+.notice a {
+	text-decoration: underline;
+}
+.notice.old {
+	border-color: #999;
+}
+.notice .date {
+	font-size: 20pt;
+	margin: -15px 0 28px -15px;
+	padding-bottom: 8px;
+	text-transform: uppercase;
+	text-align: left;
+	border-bottom: solid 5px red;
+}
+.notice.old .date {
+	color: #999;
+	border-color: #999;
+}
+.notice .title {
+	font-size: 50pt;
+	margin: 0 0 0.4em 0;
+}
+.notice p {
+	margin: 0.5em 0;
+}
+.notice p:last-child {
+	margin-bottom: 0;
+}
+.notice .picturebox {
+	display: block;
+	text-align: center;
+	font-size: 0.8em;
+}
+.notice .picturebox img {
+	display: block;
+	margin-bottom: 4px;
+    width: 100%;
+    height: auto;
+}
+.notice ul {
+    text-align: left;
+}
+
+.additional-notice {
+}
+.additional-notice .title {
+	font-family: DINCondensed;
+}
+
+.book-title {
+	clear: both;
+	font-size: 70pt;
+	line-height: 60pt;
+	font-family: DINCondensed;
+	color: red;
+	text-transform: uppercase;
+	margin: 30px 0 10px 0;
+}
+.author-name {
+	font-family: DINCondensed;
+	font-size: 50pt;
+	margin: 0 0 30px 0;
+}
+.author-name+.book-title {
+    margin-top: -20px;
+}
+.section-title {
+	clear: both;
+	font-family: DINCondensed;
+	font-size: 50pt;
+	text-transform: uppercase;
+	margin: 40px 0 10px 0;
+}
+.author-pic, .book-cover {
+	float: right;
+	margin: 0 0 10px 20px;
+	font-family: GillSansStdLight;
+	font-size: 0.8em;
+	color: #666;
+}
+.book-cover img {
+	border: solid 1px #666;
+}
+
+/* Text blocks */
+.text-block {
+	font-family: GillSansStdLight;
+	font-size: 16pt;
+	text-align: left;
+}
+.text-block p {
+	margin: 0 0 1em 0;
+}
+.center-quote {
+	font-size: 14pt;
+	color: #333;
+	margin: 1em 0;
+	padding: 0 4em;
+	background: url('img/quote.png') top left no-repeat;
+}
+.author-signature {
+	color: #333;
+}
+.author-signature:before {
+	content: '~ ';
+}
+.ending-note {
+	padding: 0 0 0 2em;
+}
+
+/* Author/Book additional blocks */
+.author-works {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.author-works li {
+	margin: 0 0 1em 0;
+}
+.author-works .work-title {
+	font-family: DINCondensed;
+	text-transform: uppercase;
+	font-size: 20pt;
+}
+.author-works .work-title:before {
+	content: '“';
+}
+.author-works .work-title:after {
+	content: '”';
+}
+.author-works .work-info {
+	font-family: GillSansStdLight;
+	font-size: 14pt;
+}
+
+.feedback {
+	font-family: GillSansStdLight;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.feedback li {
+	margin: 0 0 1em 0;
+}
+.feedback .feedback-content {
+	font-size: 16pt;
+	font-weight: bold;
+}
+.feedback .feedback-content:before {
+	content: '“';
+}
+.feedback .feedback-content:after {
+	content: '”';
+}
+.feedback .feedback-source {
+	font-size: 13pt;
+	color: #333;
+	padding: 0 0 0 2em;
+}
+
+/* Back link */
+#back-link {
+	font-family: DINCondensed;
+	text-transform: uppercase;
+	font-size: 30pt;
+	margin: 40px 0 20px 0;
+}
+#back-link a {
+	display: block;
+	padding: 2px 6px 4px 6px;
+	color: black;
+	text-decoration: none;
+}
+#back-link a:before {
+	content: '← ';
+}
+#back-link a:hover {
+	background: black;
+	color: white;
+	text-decoration: none;
+}
+
+/* Press blocks */
+.press {
+	display: block;
+	margin: 1em -1em;
+	padding: 1em 1em;
+
+	font-family: GillSansStdLight;
+	font-size: 12pt;
+}
+.press:nth-child(even) {
+	background: #EEE;
+/*	border: solid #DDD;
+	border-width: 2px 0;*/
+	margin: 0 -20px;
+	padding: 20px;
+}
+.press p {
+	font-size: 14pt;
+	line-height: 22pt;
+	margin: 0.5em 0;
+}
+.press p img {
+	width: 100%;
+	height: auto;
+	box-shadow: 2px 2px 8px #AAA;
+}
+/*.press:nth-child(odd) p img {
+	border: solid 2px #DDD;
+}*/
+.press .author {
+	font-family: DINCondensed;
+	font-size: 18pt;
+	float: left;
+}
+.press .media {
+	font-family: DINCondensed;
+	font-size: 18pt;
+	float: left;
+	margin: 0 0 0 0.5em;
+	color: #666;
+}
+.press .date {
+	clear: both;
+	font-family: DINCondensed;
+	font-size: 14pt;
+	margin: 0 0 1.5em 0;
+}
+
+/* Materials blocks */
+ul.materials {
+	list-style: square;
+	font-family: GillSansStdLight;
+	margin: 1em 0;
+	padding: 0;
+	font-size: 14pt;
+}
+ul.materials li {
+	margin: 0 0 1em 0;
+}
+ul.materials a {
+	font-family: DINCondensed;
+	font-size: 22pt;
+}
+ul.materials .details {
+	color: #666;
+}

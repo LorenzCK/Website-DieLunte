@@ -22,3 +22,21 @@ services:
     - "traefik.frontend.entryPoints=http,https"
     - "traefik.frontend.redirect.entryPoint=https"
     restart: unless-stopped
+
+  www-redirector:
+    image: schmunk42/nginx-redirect:0.6.0
+    networks:
+    - web
+    expose:
+    - "80"
+    environment:
+    - "SERVER_REDIRECT=dielunte.com"
+    - "SERVER_REDIRECT_SCHEME=https"
+    labels:
+    - "traefik.enable=true"
+    - "traefik.docker.network=web"
+    - "traefik.protocol=http"
+    - "traefik.port=80"
+    - "traefik.frontend.rule=Host:www.dielunte.com"
+    - "traefik.frontend.entryPoints=http,https"
+    restart: unless-stopped

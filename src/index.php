@@ -27,6 +27,10 @@
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 		
 		<title>Die Lunte Verlag - Die schräge Reihe im Margarete Berg Buchverlag, Köln</title>
+
+		<script defer src="https://api.pirsch.io/pa.js"
+			id="pianjs"
+			data-code="9N6kIEkOo1f7l7Vi84TPuM5Ubd3XcDIn"></script>
 	</head>
 	
 	<body>
@@ -88,6 +92,4 @@
 			});
 		});
 	</script>
-	
-	<script src="https://cdn.usefathom.com/script.js" data-site="GIMBKQPC" excluded-domains="localhost" defer></script>
 </html>

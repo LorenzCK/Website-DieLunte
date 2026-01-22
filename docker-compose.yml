@@ -6,7 +6,7 @@ networks:
 
 services:
   server:
-    image: php:8.0.12-apache
+    image: php:8.4-apache
     networks:
     - web
     volumes:
@@ -16,27 +16,16 @@ services:
     labels:
     - "traefik.enable=true"
     - "traefik.docker.network=web"
-    - "traefik.protocol=http"
-    - "traefik.port=80"
-    - "traefik.frontend.rule=Host:dielunte.com"
-    - "traefik.frontend.entryPoints=http,https"
-    - "traefik.frontend.redirect.entryPoint=https"
-    restart: unless-stopped
 
-  www-redirector:
-    image: schmunk42/nginx-redirect:0.6.0
-    networks:
-    - web
-    expose:
-    - "80"
-    environment:
-    - "SERVER_REDIRECT=dielunte.com"
-    - "SERVER_REDIRECT_SCHEME=https"
-    labels:
-    - "traefik.enable=true"
-    - "traefik.docker.network=web"
-    - "traefik.protocol=http"
-    - "traefik.port=80"
-    - "traefik.frontend.rule=Host:www.dielunte.com"
-    - "traefik.frontend.entryPoints=http,https"
+    - "traefik.http.routers.dielunte-secure.rule=Host(`dielunte.com`)"
+    - "traefik.http.routers.dielunte-secure.entrypoints=websecure"
+
+    - "traefik.http.routers.dielunte-insecure.rule=Host(`dielunte.com`)"
+    - "traefik.http.routers.dielunte-insecure.entrypoints=web"
+    - "traefik.http.routers.dielunte-insecure.middlewares=basic-https-redirect@file"
+
+    - "traefik.http.routers.dielunte-www.rule=Host(`www.dielunte.com`)"
+    - "traefik.http.routers.dielunte-www.middlewares=dielunte-www-redirect"
+    - "traefik.http.middlewares.dielunte-www-redirect.redirectregex.regex=^https?://www.dielunte.com/(.*)"
+    - "traefik.http.middlewares.dielunte-www-redirect.redirectregex.replacement=https://dielunte.com/$${1}"
     restart: unless-stopped

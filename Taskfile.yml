@@ -1,0 +1,23 @@
+version: '3'
+
+vars:
+  DC: docker compose -f docker-compose.yml
+  DC_RUN: '{{.DC}} run --rm'
+
+tasks:
+  cmd:
+    desc: Print the Docker Compose command
+    cmds:
+      - echo 'Docker-Compose command:'
+      - echo '{{.DC}}'
+
+  up:
+    desc: Start the server service in the background
+    cmds:
+      - '{{.DC}} up -d server'
+      - echo 'Service is up'
+
+  ps:
+    desc: List Docker Compose services
+    cmds:
+      - '{{.DC}} ps'

@@ -15,15 +15,20 @@ services:
     - "traefik.enable=true"
     - "traefik.docker.network=web"
 
+    # --- Secure router
     - "traefik.http.routers.dielunte-secure.rule=Host(`dielunte.com`)"
     - "traefik.http.routers.dielunte-secure.entrypoints=websecure"
 
+    # --- Insecure router
     - "traefik.http.routers.dielunte-insecure.rule=Host(`dielunte.com`)"
     - "traefik.http.routers.dielunte-insecure.entrypoints=web"
-    - "traefik.http.routers.dielunte-insecure.middlewares=basic-https-redirect@file"
+    - "traefik.http.routers.dielunte-insecure.middlewares=dielunte-https-redirect@docker"
+    - "traefik.http.middlewares.dielunte-https-redirect.redirectscheme.scheme=https"
+    - "traefik.http.middlewares.dielunte-https-redirect.redirectscheme.permanent=true"
 
+    # --- WWW redirect router
     - "traefik.http.routers.dielunte-www.rule=Host(`www.dielunte.com`)"
-    - "traefik.http.routers.dielunte-www.middlewares=dielunte-www-redirect"
+    - "traefik.http.routers.dielunte-www.middlewares=dielunte-www-redirect@docker"
     - "traefik.http.middlewares.dielunte-www-redirect.redirectregex.regex=^https?://www.dielunte.com/(.*)"
     - "traefik.http.middlewares.dielunte-www-redirect.redirectregex.replacement=https://dielunte.com/$${1}"
     restart: unless-stopped

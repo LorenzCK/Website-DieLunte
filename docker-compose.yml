@@ -4,7 +4,7 @@ networks:
 
 services:
   server:
-    image: php:8.4-apache
+    image: php:8.5-apache
     networks:
     - web
     volumes:
